@@ -1,0 +1,8 @@
+extends: stylelint-config-standard
+rules:
+  # Possible Errors
+  color-no-invalid-hex: true
+  font-family-no-duplicate-names: true
+  function-calc-no-unspaced-operator: true
+  # Stylistic Issues
+  string-quotes: single
