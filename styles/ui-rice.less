@@ -1,0 +1,72 @@
+@import 'ui-variables';
+
+.tab-bar {
+  .tab {
+    transition: 300ms;
+    border-bottom: 1px solid @base-background-color;
+
+    &.active {
+      border-bottom: 1px solid lighten(@base-background-color, 25%);
+    }
+
+    &:hover:not(.active) {
+      color: lighten(@text-color, 10%);
+      border-bottom: 1px solid lighten(@base-background-color, 50%);
+    }
+  }
+}
+
+.list-tree.has-collapsable-children .list-nested-item {
+  > .list-item::before {
+    top: 6px;
+    margin: 0 8px 0 0;
+    content: url('data:image/svg+xml;charset=utf-8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="@{text-color}" d="M11 10.07H5.344L11 4.414v5.656z"/></svg>');
+  }
+
+  &.collapsed > .list-item::before {
+    top: 4px;
+    content: url('data:image/svg+xml;charset=utf-8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="@{text-color}" d="M6 4v8l4-4-4-4zm1 2.414L8.586 8 7 9.586V6.414z"/></svg>');
+  }
+}
+
+.tree-view {
+  .directory .header.list-item .icon::before {
+    display: none;
+  }
+
+  .icon::before {
+    top: 3px;
+  }
+
+  .tree-view-root.focusable-panel {
+    padding: 0;
+
+    .project-root {
+      > .header .name {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .list-item,
+      .header .name {
+        height: 1.8rem;
+        font-size: 11px;
+        line-height: 1.8rem;
+        font-family: 'Droid Sans';
+      }
+
+      &::before {
+        height: 1.8rem;
+      }
+
+      .project-root-header {
+        transition: 200ms;
+        background-color: darken(@tool-panel-background-color, 5%);
+      }
+
+      &.expanded .project-root-header {
+        box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.85);
+      }
+    }
+  }
+}
